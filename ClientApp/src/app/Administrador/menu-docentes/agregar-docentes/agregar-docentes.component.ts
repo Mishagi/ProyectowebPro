@@ -47,7 +47,7 @@ export class AgregarDocentesComponent implements OnInit {
       //telefono:  ['', Validators.required],
       cargo: ['', Validators.required],
       programa: ['', Validators.required],
-      facultad: ['', Validators.required],
+      //facultad: ['', Validators.required],
     });
 
     this.docente = new Docente();

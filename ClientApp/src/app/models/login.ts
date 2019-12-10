@@ -1,7 +1,7 @@
 export class Login {
     id: number
-    Identificacion: string;
-    Usuario: string;
-    Contraseña:string;
-    Rol: string;
+    identificacion: string;
+    usuario: string;
+    clave:string;
+    rol: string;
 }

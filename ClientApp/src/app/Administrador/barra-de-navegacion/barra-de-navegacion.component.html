@@ -27,7 +27,10 @@
               <label for="password">Contraseña</label>
               <input type="password" placeholder="Ingrese su Contraseña">
 
-              <input (click)="login()" type="submit" value="Login">
+              <input (click)="getUsuario()" type="submit" value="Login">
+             <!--<input (click)="login('DOCENTE')" type="submit" value="Docente">
+              <input (click)="login('DOCENTE EN COMISION ADMINISTRATIVA')" type="submit" value="Doc.Comision">--> 
+
             </form>
           </div>
         </div>
@@ -43,6 +46,38 @@
           <span class="user-name"><strong>Administrador</strong>
           </span>
           <span class="user-role">Administrador</span>
+          <span class="user-status">
+            <i class="fa fa-circle"></i>
+            <span>Online</span>
+          </span>
+        </div>
+      </div>
+      <div class="sidebar-header" *ngIf="isAuthenticatedRole('DOCENTE')">
+        <div class="user-pic">
+          <img class="img-responsive img-rounded"
+            src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+            alt="User picture">
+        </div>
+        <div style="cursor: default" class="user-info">
+          <span class="user-name"><strong>Docente</strong>
+          </span>
+          <span class="user-role">Docente</span>
+          <span class="user-status">
+            <i class="fa fa-circle"></i>
+            <span>Online</span>
+          </span>
+        </div>
+      </div>
+      <div class="sidebar-header" *ngIf="isAuthenticatedRole('DOCENTE EN COMISION ADMINISTRATIVA')">
+        <div class="user-pic">
+          <img class="img-responsive img-rounded"
+            src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+            alt="User picture">
+        </div>
+        <div style="cursor: default" class="user-info">
+          <span class="user-name"><strong>Docente</strong></span>
+          <span class="user-name"><strong>En Comision</strong></span>
+          <span class="user-role">Docente</span>
           <span class="user-status">
             <i class="fa fa-circle"></i>
             <span>Online</span>
@@ -114,7 +149,7 @@
  <!------------------------------------------------------------------------------------------------------>
               <li class="sidebar-dropdown" *ngIf="isAuthenticatedRole('DOCENTE')">
             <a style="cursor: pointer">
-              <i class="fas fa-users"></i>
+              <i class="fas fa-user-tie"></i>
               <span> Mi Informacion</span>
             </a>
             <div class="sidebar-submenu">
@@ -128,7 +163,7 @@
 
           <li class="sidebar-dropdown" *ngIf="isAuthenticatedRole('DOCENTE')">
             <a style="cursor: pointer">
-              <i class="fas fa-users"></i>
+              <i class="fas fa-file-signature"></i>
               <span> Calificar</span>
             </a>
             <div class="sidebar-submenu">
@@ -142,7 +177,7 @@
 <!------------------------------------------------------------------------------------------------------>
           <li class="sidebar-dropdown" *ngIf="isAuthenticatedRole('DOCENTE EN COMISION ADMINISTRATIVA')"> 
             <a style="cursor: pointer">
-              <i class="fas fa-users"></i>
+              <i class="fas fa-user-tie"></i>
               <span> Mi Informacion</span>
             </a>
             <div class="sidebar-submenu">
@@ -156,7 +191,7 @@
 
           <li class="sidebar-dropdown" *ngIf="isAuthenticatedRole('DOCENTE EN COMISION ADMINISTRATIVA')">
             <a style="cursor: pointer">
-              <i class="fas fa-users"></i>
+              <i class="fas fa-file-signature"></i>
               <span> Calificar</span>
             </a>
             <div class="sidebar-submenu">
@@ -169,7 +204,7 @@
           </li>
 <!------------------------------------------------------------------------------------------------------>
           <li>
-            <a routerLink="/Adminitrador/principal" style="cursor: pointer" *ngIf="isAuthenticated()">
+            <a routerLink="/Inicio" style="cursor: pointer" *ngIf="isAuthenticated()">
               <i class="fas fa-home"></i>
               <span> Volver a Inicio</span>
             </a>

@@ -13,7 +13,7 @@ namespace ProyectoWeb.Models
         [Required] public string Correo { get; set; }
         [Required] public string Genero { get; set; }
         [Required] public string Cargo { get; set; }
-        [Required] public string Facultad { get; set; }
+        //[Required] public string Facultad { get; set; }
         [Required] public string Programa { get; set; }
 
         public string SegundoNombre { get; set; }

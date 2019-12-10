@@ -9,8 +9,8 @@ using ProyectoWeb.Models;
 namespace ProyectoWeb.Migrations
 {
     [DbContext(typeof(DocenteContext))]
-    [Migration("20191208205619_Zolddick")]
-    partial class Zolddick
+    [Migration("20191210121504_ZolddickDB")]
+    partial class ZolddickDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -72,10 +72,6 @@ namespace ProyectoWeb.Migrations
                     b.Property<string>("Estado")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Facultad")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Genero")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -114,7 +110,7 @@ namespace ProyectoWeb.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Contraseña")
+                    b.Property<string>("Clave")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

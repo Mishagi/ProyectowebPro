@@ -70,10 +70,6 @@ namespace ProyectoWeb.Migrations
                     b.Property<string>("Estado")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Facultad")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Genero")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -112,7 +108,7 @@ namespace ProyectoWeb.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Contraseña")
+                    b.Property<string>("Clave")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

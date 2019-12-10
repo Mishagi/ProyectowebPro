@@ -41,7 +41,7 @@ export class ModificarDocentesComponent implements OnInit {
       //telefono:  ['', Validators.required],
       cargo: ['', Validators.required],
       programa: ['', Validators.required],
-      facultad: ['', Validators.required],
+      //facultad: ['', Validators.required],
     });
   }
   get(): void {
@@ -51,7 +51,13 @@ export class ModificarDocentesComponent implements OnInit {
     const id =
     +this.route.snapshot.paramMap.get('id');
     this.docenteService.get(id)
-    .subscribe(hero => this.docente = hero);
+    .subscribe(doc => 
+      {
+
+        this.docente = doc;
+
+        alert(JSON.stringify(this.docente));
+      });
     }
     
     

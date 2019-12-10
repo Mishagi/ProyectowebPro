@@ -39,22 +39,22 @@ export class BarraDeNavegacionComponent implements OnInit {
 
   getUsuario(): void {
 
-    var usuario = "Pedro";
-    this.loginService.getUsuario(usuario).subscribe(aux => this.log = aux);
+    var user = "Pedro";
+    this.loginService.getUsuario(user).subscribe(aux => {
+      alert(JSON.stringify(aux));
+      this.log = aux;
+      this.authService.login(this.log.usuario, this.log.clave ,this.log.rol);
+    });
+   
 
-    if(this.log != null){
-      this.authService.login(this.log.Usuario, this.log.Contraseña ,this.log.Rol);
-    }
-
+  
   }
 
   sw=false;
 
-  login()
+  login(rol:string)
   {
-    this.authService.login('pedro', '12345','ADMINISTRADOR');
-    //this.authService.login('pedro', '12345','DOCENTE');
-    //this.authService.login('pedro', '12345','DOCENTE EN COMISION ADMINISTRATIVA');
+    this.authService.login('pedro', '12345', rol);
   }
 
   logout() {

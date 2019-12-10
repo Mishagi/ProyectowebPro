@@ -19,7 +19,6 @@ export class FiltroDocentePipe implements PipeTransform {
       docente.id.toString().toLowerCase() ==searchText.toLowerCase() ||
       docente.primerNombre.toString().toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
       docente.primerApellido.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
-      docente.facultad.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
       docente.correo.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
       docente.estado.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 
     );
