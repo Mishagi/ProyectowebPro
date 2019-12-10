@@ -11,15 +11,8 @@ export class AuthService {
     constructor(private _router: Router) {}
 
     login(user: string, password: string, rol: string) {
-        //validar en el servidor si el usuario y password son válidos.
-        //en el caso que sean válidos se deberian retornar los roles que tiene asociado dicho usuario
-        //se podría encriptar el nombre de la variable
-        sessionStorage.setItem('user', user);
-        sessionStorage.setItem('password',password);
-        sessionStorage.setItem('roles', JSON.stringify([rol]));
 
-        //sessionStorage.setItem('roles', JSON.stringify(['admin']));
-        
+        sessionStorage.setItem('roles', JSON.stringify([rol]));        
         this._router.navigate(['/Inicio']);
     }
 

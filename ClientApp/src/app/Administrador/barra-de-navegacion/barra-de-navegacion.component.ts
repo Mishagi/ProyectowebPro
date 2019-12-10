@@ -36,26 +36,25 @@ export class BarraDeNavegacionComponent implements OnInit {
   constructor(private authorizeService: AuthService, private authService: AuthService, private loginService:LoginService, private route: ActivatedRoute) { }
 
   log:Login;
+  objeto:Login;
 
-  getUsuario(): void {
+  getUsuario(objeto:Login): void {
 
-    var user = "Pedro";
-    this.loginService.getUsuario(user).subscribe(aux => {
-      alert(JSON.stringify(aux));
+    this.loginService.getUsuario(objeto.usuario).subscribe(aux => {
+      //alert(JSON.stringify(aux));
       this.log = aux;
-      this.authService.login(this.log.usuario, this.log.clave ,this.log.rol);
-    });
-   
+      alert(JSON.stringify(this.log.clave));
+      alert(JSON.stringify(objeto.clave));
 
-  
+      if(objeto.clave === this.log.clave){
+        this.authService.login(this.log.usuario, this.log.clave ,this.log.rol);
+      }else{
+        alert("Contraseña o Usuario Incorrecto");
+      }
+    });
   }
 
   sw=false;
-
-  login(rol:string)
-  {
-    this.authService.login('pedro', '12345', rol);
-  }
 
   logout() {
     this.authService.logout();
@@ -122,6 +121,7 @@ export class BarraDeNavegacionComponent implements OnInit {
 
   ngOnInit() { 
     this.activar();
+    this.objeto = new Login();
   }
 
 }

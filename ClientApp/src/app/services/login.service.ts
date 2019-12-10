@@ -38,7 +38,7 @@ export class LoginService {
   {
     const url = `${this.baseUrl + 'api/Login'}/${user}`;
     return this.http.get<Login>(url).pipe(
-    tap(_ => this.log(`fetched Login Usuario=${user}`)),
+    tap(),
     catchError(this.handleError<Login>(`getHero Usuario=${user}`))
     );
   }
