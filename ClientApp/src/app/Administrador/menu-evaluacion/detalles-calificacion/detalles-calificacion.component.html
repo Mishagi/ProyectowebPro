@@ -1,0 +1,49 @@
+<div class="container">
+    <br>
+  
+    <div class="Titulo">
+      <h1>Detalles De Las Calificaciones</h1>
+      <br>
+    </div>
+  
+    <br>
+    <div class="row">
+      <div class="col-6">
+        <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Type to filter">
+      </div>
+    </div>
+    <hr>
+  
+    <div class="table-container">
+      <table class="table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id Doc. A Calificar</th>
+            <th scope="col">Id Jefe</th>
+            <th scope="col">Id Par</th>
+            <th scope="col">Nota del Jefe</th>
+            <th scope="col">Nota del Par</th>
+            <th scope="col">Nota Autoevaluacion</th>
+            <th scope="col">Nota Promedio</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let calificaion of calificaciones | filtroDocente:searchText;">
+            <td>{{calificaion.id}}</td>
+            <td>{{calificaion.id_DocenteCalificado}}</td>
+            <td>{{calificaion.id_Jefe}}</td>
+            <td>{{calificaion.id_Par}}</td>
+            <td>{{calificaion.nota_Jefe}}</td>
+            <td>{{calificaion.nota_Par}}</td>
+            <td>{{calificaion.nota_Autoevaluacion}}</td>
+            <td>{{calificaion.promedio}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <br><br>
+  </div>
+  

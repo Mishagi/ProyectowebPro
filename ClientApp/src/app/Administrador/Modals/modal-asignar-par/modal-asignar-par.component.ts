@@ -33,10 +33,17 @@ export class ModalAsignarParComponent implements OnInit {
     this.docenteservice.getAll().subscribe(docentes => this.docentes = docentes);
   }
 
-  add(calificador: string) {
-    this.calificacion.id_DocenteCalificado = this.docente.identificacion;
-    this.calificacion.id_Par = calificador;
-    this.calificadorService.add(this.calificacion)
-      .subscribe();
+  update(par: string) {
+    this.calificadorService.get(this.docente.identificacion).subscribe(aux => {
+      //alert(JSON.stringify(aux));
+      this.calificacion = aux;
+
+      this.calificacion.id_Par = par;
+      this.calificadorService.update(this.calificacion)
+        .subscribe();
+        setTimeout(()=> {
+          location.reload();
+        },1300)
+    });
   }
 }
