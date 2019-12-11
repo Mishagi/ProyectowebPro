@@ -39,7 +39,7 @@ export class LoginService {
     const url = `${this.baseUrl + 'api/Login'}/${user}`;
     return this.http.get<Login>(url).pipe(
     tap(),
-    catchError(this.handleError<Login>(`getUser Usuario=${user}`))
+    catchError(this.ErrorLogin<Login>(`getUser Usuario=${user}`))
     );
   }
   
@@ -72,8 +72,16 @@ export class LoginService {
     return of(result as T);
     };
   }
+
+  private ErrorLogin<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+    console.error(error);
+    this.log('Usuario o Clave Incorrecto');
+    return of(result as T);
+    };
+  }
   
   private log(message: string) {
-      alert(`LoginService: ${message}`);
+    alert(`${message}`);
   }
 }
