@@ -16,7 +16,6 @@ import {
 })
 export class ModalAsignarJefeComponent implements OnInit {
 
-  calificacion: Calificaciones;
 
   constructor(private docenteservice: DocenteServiceService, private calificadorService: CalificadorService) { }
 
@@ -25,18 +24,27 @@ export class ModalAsignarJefeComponent implements OnInit {
   docentes: Docente[];
   ngOnInit() {
     this.getAll();
-    this.calificacion = new Calificaciones();
+    this.calificacion = new  Calificaciones();
   }
 
   getAll() {
     this.docenteservice.getAll().subscribe(docentes => this.docentes = docentes);
   }
 
-  add(calificador: string) {
-    this.calificacion.id_DocenteCalificado = this.docente.identificacion;
-    this.calificacion.id_Calificador = calificador;
-    this.calificacion.tipo_Calificador = "JEFE";
-    this.calificadorService.add(this.calificacion)
-      .subscribe();
+  calificacion: Calificaciones;
+
+  update(jefe: string) {
+
+    this.calificadorService.get(this.docente.identificacion).subscribe(aux => {
+      //alert(JSON.stringify(aux));
+      this.calificacion = aux;
+
+      this.calificacion.id_Jefe = jefe;
+      this.calificadorService.update(this.calificacion)
+        .subscribe();
+        setTimeout(()=> {
+          location.reload();
+        },1300)
+    });
   }
 }

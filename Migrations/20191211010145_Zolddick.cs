@@ -2,7 +2,7 @@
 
 namespace ProyectoWeb.Migrations
 {
-    public partial class ZolddickDB : Migration
+    public partial class Zolddick : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,10 +13,12 @@ namespace ProyectoWeb.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Id_DocenteCalificado = table.Column<string>(nullable: false),
-                    Id_Calificador = table.Column<string>(nullable: true),
-                    Tipo_Calificador = table.Column<string>(nullable: true),
-                    Estado_Califiacador = table.Column<string>(nullable: true),
-                    Nota = table.Column<decimal>(nullable: false),
+                    Id_Jefe = table.Column<string>(nullable: true),
+                    Id_Par = table.Column<string>(nullable: true),
+                    Nota_Jefe = table.Column<decimal>(nullable: false),
+                    Nota_Par = table.Column<decimal>(nullable: false),
+                    Nota_Autoevaluacion = table.Column<decimal>(nullable: false),
+                    Promedio = table.Column<decimal>(nullable: false),
                     Observaciones = table.Column<string>(nullable: true),
                     Fecha_Calificacion = table.Column<string>(nullable: true)
                 },

@@ -17,7 +17,7 @@ import { ModalAsignarParComponent} from "../../Modals/modal-asignar-par/modal-as
 })
 export class ModalDatosDocenteComponent implements OnInit {
 
-  calificaciones : Calificaciones[];
+  calificacion : Calificaciones;
   
 
   constructor(public ActiveModal: NgbActiveModal, private route: ActivatedRoute,
@@ -31,7 +31,7 @@ export class ModalDatosDocenteComponent implements OnInit {
   }
 
   getAll() {
-    this.calificadorService.getAll(this.docente.identificacion).subscribe(calificaciones => this.calificaciones = calificaciones);
+    this.calificadorService.get(this.docente.identificacion).subscribe(calificacion => this.calificacion = calificacion);
   }
 
   open(docente:Docente){

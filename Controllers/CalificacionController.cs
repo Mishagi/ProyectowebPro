@@ -16,19 +16,6 @@ namespace ProyectoWeb.Controllers
         public CalificacionController(DocenteContext context)
         {
             _context = context;
-            /*if (_context.Docentes.Count() == 0)
-            {
-                // Crea un nuevo item si la coleccion esta vacia,
-                // lo que significa que no puedes borrar todos los Items.
-                _context.Docentes.Add(new Docente { Identificacion="12345", PrimerNombre= "Luis",
-                                                    SegundoNombre="Eduardo", PrimerApellido="Gomez",
-                                                    SegundoApellido="Santiago", Correo= "luis@gmai.com",
-                                                    /*FechaNacimiento="30/06/00",*/ /*Genero="MASCULINO", 
-                                                    Telefono=1234,*//*Cargo="DOCENTE", 
-                                                    Facultad= "CIENCIAS DE LA SALUD", Programa= "ENFERMERÍA",
-                                                    Estado="ACTIVO" });
-                _context.SaveChanges();
-            }*/
         }
 
         // GET: api/Task
@@ -44,11 +31,23 @@ namespace ProyectoWeb.Controllers
             return await _context.Calificaciones.Where(p=>p.Estado=="ACTIVO" & p.Cargo!="DOCENTE").ToListAsync();
         }*/
 
-        // GET: api/Task/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<IEnumerable<Calificaciones>>> GetTaskItem(string id)
+        [HttpGet("{identificacion}")]
+        public async Task<ActionResult<Calificaciones>> GetTaskItem(string identificacion)
         {
-            return await _context.Calificaciones.Where(p=>p.Id_DocenteCalificado==id).ToListAsync();
+            var lista = await _context.Calificaciones.Where(p=>p.Id_DocenteCalificado==identificacion).ToListAsync();
+            int id=0;
+            
+            foreach (var item in lista)
+            {
+                id = item.Id;
+            }
+            
+            var user = await _context.Calificaciones.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return user;
         }
         
         /*

@@ -26,9 +26,9 @@ export class CalificadorService {
   }
 
   /** GET Task from the server */
-  getAll(id: string):Observable<Calificaciones[]>
+  getAll():Observable<Calificaciones[]>
   {
-    const url = `${this.baseUrl + 'api/Calificacion'}/${id}`;
+    const url = this.baseUrl + 'api/Calificacion';
     return this.http.get<Calificaciones[]>(url).pipe(
     tap(/*=>this.log('Se Consulta la información')*/),
     catchError(this.handleError<Calificaciones[]>('getAll',[]))
@@ -36,27 +36,27 @@ export class CalificadorService {
   }
 
   /** GET task by id. Will 404 if id not found */
-  get(id: string): Observable<Calificaciones>
+  get(identificacion: string): Observable<Calificaciones>
   {
-    const url = `${this.baseUrl + 'api/Calificacion'}/${id}`;
+    const url = `${this.baseUrl + 'api/Calificacion'}/${identificacion}`;
     return this.http.get<Calificaciones>(url).pipe(
-    tap(_ => this.log(`fetched calificador id=${id}`)),
-    catchError(this.handleError<Calificaciones>(`getPregunta id=${id}`))
+    tap(_ => this.log(`fetched calificador id=${identificacion}`)),
+    catchError(this.handleError<Calificaciones>(`getPregunta id=${identificacion}`))
     );
   }
 
   /** PUT: update the Task on the server */
   update (calificaciones: Calificaciones): Observable<any> {
-    const url =`${this.baseUrl + 'api/Calificacion'}/${calificaciones.id_Calificacion}`;
+    const url =`${this.baseUrl + 'api/Calificacion'}/${calificaciones.id}`;
     return this.http.put(url, calificaciones, httpOptions).pipe(
-    tap(_ => this.log(`updated calificador id=${calificaciones.id_Calificacion}`)),
+    tap(_ => this.log(`updated calificador id=${calificaciones.id}`)),
     catchError(this.handleError<any>('calificador'))
     );
   }
 
   /** DELETE: delete the task from the server */
   delete (calificaciones: Calificaciones | number): Observable<Calificaciones> {
-    const id = typeof calificaciones === 'number' ? calificaciones : calificaciones.id_Calificacion;
+    const id = typeof calificaciones === 'number' ? calificaciones : calificaciones.id;
     const url =
     
     `${this.baseUrl + 'api/Calificacion'}/${id}`;
