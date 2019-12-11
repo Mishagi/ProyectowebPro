@@ -13,7 +13,6 @@ export class AuthService {
     login(user: string, rol: string) {
 
         sessionStorage.setItem('user', user);
-
         sessionStorage.setItem('roles', JSON.stringify([rol]));        
         this._router.navigate(['/Inicio']);
     }

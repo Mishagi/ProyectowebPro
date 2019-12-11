@@ -72,8 +72,16 @@ export class LoginService {
     return of(result as T);
     };
   }
+
+  private ErrorLogin<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+    console.error(error);
+    this.log('Usuario o Clave Incorrecto');
+    return of(result as T);
+    };
+  }
   
   private log(message: string) {
-      alert(`LoginService: ${message}`);
+    alert(`${message}`);
   }
 }

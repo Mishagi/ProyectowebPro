@@ -41,8 +41,8 @@
             alt="User picture">
         </div>
         <div style="cursor: default" class="user-info">
-          <span class="user-name"><strong>{{objeto.usuario}}</strong></span>
-          <span class="user-role"><strong>Administrador</strong></span>
+            <span class="user-name"><strong>{{nombre}}</strong></span>
+            <span class="user-role"><strong>Administrador</strong></span>
           <span class="user-status">
             <i class="fa fa-circle"></i>
             <span>Online</span>
@@ -56,7 +56,11 @@
             alt="User picture">
         </div>
         <div style="cursor: default" class="user-info">
+<<<<<<< HEAD
           <span class="user-name"><strong>{{objeto.usuario}}</strong></span>
+=======
+            <span class="user-name"><strong>{{nombre}}</strong></span>
+>>>>>>> 293dc5ebfa75b7c8ebe8ed3c48d83c03d0c11e65
             <span class="user-role"><strong>Docente</strong></span>
           <span class="user-status">
             <i class="fa fa-circle"></i>
@@ -71,7 +75,11 @@
             alt="User picture">
         </div>
         <div style="cursor: default" class="user-info">
+<<<<<<< HEAD
           <span class="user-name"><strong>{{objeto.usuario}}</strong></span>
+=======
+          <span class="user-name"><strong>{{nombre}}</strong></span>
+>>>>>>> 293dc5ebfa75b7c8ebe8ed3c48d83c03d0c11e65
           <span class="user-role"><strong>Docente en </strong></span>
           <span class="user-role"><strong>Comision Administrativa</strong></span>
           <span class="user-status">
@@ -210,7 +218,7 @@
       <!-- sidebar-menu  -->
     </div>
     <!-- sidebar-content  -->
-    <div class="sidebar-footer">
+    <div class="sidebar-footer" *ngIf="isAuthenticated()">
       <a>
         <i class="fa fa-bell"></i>
         <span class="badge badge-pill badge-warning notification">0</span>

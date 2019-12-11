@@ -37,18 +37,20 @@ export class BarraDeNavegacionComponent implements OnInit {
 
   log:Login;
   objeto:Login;
+  nombre:string;
 
   getUsuario(objeto:Login): void {
 
     this.loginService.getUsuario(objeto.usuario).subscribe(aux => {
-      this.log = aux;
+      //alert(JSON.stringify(aux));
 
+      this.log = aux;
 
       if(objeto.clave === this.log.clave){
         this.authService.login(this.log.usuario,this.log.rol);
         alert(JSON.stringify("Ha sido logeado con exito: " + this.log.usuario));
       }else{
-        alert("Contraseña o Usuario Incorrecto");
+        alert("Usuario o Clave Incorrecto");
       }
     });
   }
@@ -58,6 +60,7 @@ export class BarraDeNavegacionComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.sw=false;
+    this.nombre="";
   }
 
   userName(): string {
@@ -72,6 +75,7 @@ export class BarraDeNavegacionComponent implements OnInit {
       this.sw=true;
       setTimeout(()=> {
         this.activar();
+        this.nombre=sessionStorage.getItem('user');
       },1300)
     }
     return isAuth;
