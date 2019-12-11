@@ -42,12 +42,12 @@ export class BarraDeNavegacionComponent implements OnInit {
 
     this.loginService.getUsuario(objeto.usuario).subscribe(aux => {
       //alert(JSON.stringify(aux));
+      
       this.log = aux;
-      alert(JSON.stringify(this.log.clave));
-      alert(JSON.stringify(objeto.clave));
 
       if(objeto.clave === this.log.clave){
-        this.authService.login(this.log.usuario, this.log.clave ,this.log.rol);
+        this.authService.login(this.log.usuario,this.log.rol);
+        alert(JSON.stringify("Ha sido logeado con exito: " + this.log.usuario));
       }else{
         alert("Contraseña o Usuario Incorrecto");
       }

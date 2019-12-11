@@ -10,8 +10,9 @@ export class AuthService {
 
     constructor(private _router: Router) {}
 
-    login(user: string, password: string, rol: string) {
+    login(user: string, rol: string) {
 
+        sessionStorage.setItem('user', user);
         sessionStorage.setItem('roles', JSON.stringify([rol]));        
         this._router.navigate(['/Inicio']);
     }
