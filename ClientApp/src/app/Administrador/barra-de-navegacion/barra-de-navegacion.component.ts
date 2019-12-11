@@ -47,7 +47,7 @@ export class BarraDeNavegacionComponent implements OnInit {
       this.log = aux;
 
       if(objeto.clave === this.log.clave){
-        this.authService.login(this.log.usuario,this.log.rol);
+        this.authService.login(this.log.usuario,this.log.rol, this.log.identificacion);
         alert(JSON.stringify("Ha sido logeado con exito: " + this.log.usuario));
       }else{
         alert("Usuario o Clave Incorrecto");

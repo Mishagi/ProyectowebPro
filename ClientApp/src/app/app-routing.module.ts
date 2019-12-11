@@ -16,6 +16,7 @@ import { ConsultarPreguntasComponent } from "../app/Administrador/menu-formulari
 import { ModalDatosDocenteComponent} from "../app/Administrador/Modals/modal-datos-docente/modal-datos-docente.component"
 import { ModalAsignarJefeComponent} from "../app/Administrador/Modals/modal-asignar-jefe/modal-asignar-jefe.component";
 import { DetallesCalificacionComponent} from "../app/Administrador/menu-evaluacion/detalles-calificacion/detalles-calificacion.component"
+import { RealiazarCalificacionComponent} from "../app/Docente/realiazar-calificacion/realiazar-calificacion.component";
 
 const routes: Routes = [
   { path: '', component: InicioComponent , pathMatch: 'full' },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'Adminitrador/MenuEvaluador/AsignarEvaluador/ModalsDatos', component: ModalDatosDocenteComponent},
   { path: 'Adminitrador/MenuEvaluador/AsignarEvaluador/ModalsAsignarJefe', component: ModalAsignarJefeComponent},
   { path: 'Adminitrador/MenuEvaluador/DetallesEvaluacion', component: DetallesCalificacionComponent},
+  { path: 'Docente/RealizarEvaluacion', component: RealiazarCalificacionComponent},
 ];
 
 

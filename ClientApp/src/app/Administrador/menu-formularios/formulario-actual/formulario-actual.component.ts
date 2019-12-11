@@ -20,7 +20,4 @@ export class FormularioActualComponent implements OnInit {
   getAll(){
     this.preguntaService.getActivas().subscribe(preguntas=>this.preguntas=preguntas);
   }
-
-
-
 }

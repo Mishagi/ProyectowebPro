@@ -32,6 +32,7 @@ import { ModalDatosDocenteComponent } from './Administrador/Modals/modal-datos-d
 import { ModalAsignarJefeComponent } from './Administrador/Modals/modal-asignar-jefe/modal-asignar-jefe.component';
 import { ModalAsignarParComponent } from './Administrador/Modals/modal-asignar-par/modal-asignar-par.component';
 import { DetallesCalificacionComponent } from './Administrador/menu-evaluacion/detalles-calificacion/detalles-calificacion.component';
+import { RealiazarCalificacionComponent } from './Docente/realiazar-calificacion/realiazar-calificacion.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { DetallesCalificacionComponent } from './Administrador/menu-evaluacion/d
     ModalDatosDocenteComponent,
     ModalAsignarJefeComponent,
     ModalAsignarParComponent,
-    DetallesCalificacionComponent
+    DetallesCalificacionComponent,
+    RealiazarCalificacionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
